@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coding Challenge 6</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: lightseagreen;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Quadratic Formula </h1>
+
+        <button onclick="quadratic()">Find the root</button>
+
+        <h4 id="result"></h4>
+        
+        <script>
+            var a, b, c;
+            function quadratic(a, b, c){
+                a = prompt("Input the first value of the quadratic equation: ");
+                b = prompt("Input the second value of the quadratic equation: ");
+                c = prompt("Input the third value of the quadratic equation: ");
+                var discriminant = (b * b) - 4 * a * c;
+
+                var x1 = ((-b - Math.sqrt(discriminant)) / 2 * a).toFixed(3);
+                var x2 = ((-b + Math.sqrt(discriminant)) / 2 * a).toFixed(3);
+
+                if (Number.isNaN(discriminant) == true){
+                    document.getElementById("result").innerHTML = "Either all or some inputs are NaN.";
+                }
+                else if (discriminant == 0){
+                    document.getElementById("result").innerHTML = "The roots of the quadratic equation are equal: " + x1 + " and " + x2 + ".";
+                }
+                else if (discriminant > 0){
+                    document.getElementById("result").innerHTML = "The roots of the quadratic equation are: " + x1 + " and " + x2 + ".";
+                }
+                else{
+                    document.getElementById("result").innerHTML = "The roots of the quadratic equation are imaginary.";
+                }
+            }
+        </script>
+    </body>
+</html>
